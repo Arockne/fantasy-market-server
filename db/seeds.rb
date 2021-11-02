@@ -7,14 +7,11 @@ armor_smith = Shop.create(name: 'Armor')
 tools = Shop.create(name: 'Tools & Such')
 
 #potions
-Item.create(name: 'Healing Potion', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name:'Greater Strength', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Black Sap', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Lesser Strength', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Invisiblity', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Sleep', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Greater Speed', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
-Item.create(name: 'Growth', category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
+potions = ['Healing Potion', 'Greater Strength', 'Black Sap', 'Lesser Strength', 'Invisiblity', 'Sleep', 'Greater Speed', 'Growth']
+
+potions.each do |potion_name|
+  Item.create(name: potion_name, category: 'potion', pounds: 1, cost: rand(1..50), shop_id: potion_shop.id, desc: Faker::Lorem.sentence)
+end 
 
 # #weapons
 10.times do
@@ -34,5 +31,7 @@ armor = ['Padded', 'Leather', 'Studded Leather', 'Hide', 'Chain Shirt', 'Scale M
 armor.each do |a|
   Item.create(name: a, category: 'armor', pounds: rand(10..50), cost: rand(100..10000), shop_id: armor_smith.id, desc: Faker::Lorem.sentence)
 end
+
+#tools
 
 puts "✅ Done seeding!"
