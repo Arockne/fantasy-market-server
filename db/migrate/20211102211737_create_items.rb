@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.text :desc
       t.integer :pounds
       t.integer :cost
-      t.belongs_to :shop
+      t.belongs_to :shop, foreign_key: true
       t.timestamps
     end
   end
