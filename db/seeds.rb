@@ -28,10 +28,15 @@ end
 # # #armor
 armor = ['Padded', 'Leather', 'Studded Leather', 'Hide', 'Chain Shirt', 'Scale Mail', 'Breastplate', 'Half plate', 'Ring Mail', 'Chain Mail', 'Splint', 'Plate', 'Shield']
 
-armor.each do |a|
-  Item.create(name: a, category: 'armor', pounds: rand(10..50), cost: rand(100..10000), shop_id: armor_smith.id, desc: Faker::Lorem.sentence)
+armor.each do |armor_name|
+  Item.create(name: armor_name, category: 'armor', pounds: rand(10..50), cost: rand(100..10000), shop_id: armor_smith.id, desc: Faker::Lorem.sentence)
 end
 
 #tools
+tool_names = ['Ladder', 'Hammer', 'Grappling Hook', 'Hourglass', 'Lock', 'Magnifying glass', 'Iron Pot', 'Shovel', 'Vial']
+
+tool_names.each do |tool_name|
+  Item.create(name: tool_name, category: 'tool', pounds: rand(1..5), cost: rand(1..25), shop_id: tools.id, desc: Faker::Lorem.sentence)
+end
 
 puts "✅ Done seeding!"
