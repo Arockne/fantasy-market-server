@@ -1,5 +1,10 @@
 puts "🌱 Seeding spices..."
 
-# Seed your database here
+potion_shop = Shop.create(name: 'Potions Emporium')
+weapon_smith = Shop.create(name: 'Weapons')
+armor_smith = Shop.create(name: 'Armor')
+tools = Shop.create(name: 'Tools & Such')
+
+
 
 puts "✅ Done seeding!"
