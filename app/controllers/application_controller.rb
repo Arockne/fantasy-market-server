@@ -28,6 +28,16 @@ class ApplicationController < Sinatra::Base
     })
   end
 
-  
+  patch '/items/:id' do
+    item = Item.find(params[:id])
+    item.update(
+      name: params[:name],
+      desc: params[:desc],
+      pounds: params[:pounds],
+      cost: params[:cost],
+      category: params[:category]
+    )
+    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
+  end
 
 end
