@@ -30,7 +30,8 @@ class ApplicationController < Sinatra::Base
 
   get '/items/:id' do
     item = Item.find(params[:id])
-    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
+    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at],
+    include: :shop)
   end
 
   patch '/items/:id' do
