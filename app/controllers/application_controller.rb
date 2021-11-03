@@ -45,10 +45,22 @@ class ApplicationController < Sinatra::Base
     item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
   end
 
+  post '/items' do
+    item = Item.create(
+      name: params[:name],
+      desc: params[:desc],
+      pounds: params[:pounds],
+      cost: params[:cost],
+      category: params[:category],
+      shop_id: params[:shop_id]
+    )  
+    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
+  end
+
   delete '/items/:id' do
     item = Item.find(params[:id])
     item.destroy
-    item.to_json
+    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
   end
 
 end
