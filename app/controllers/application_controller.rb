@@ -28,6 +28,11 @@ class ApplicationController < Sinatra::Base
     })
   end
 
+  get '/items/:id' do
+    item = Item.find(params[:id])
+    item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
+  end
+
   patch '/items/:id' do
     item = Item.find(params[:id])
     item.update(
