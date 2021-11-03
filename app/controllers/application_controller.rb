@@ -1,10 +1,5 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
-  get '/shops/:id' do
-    shop = Shop.find(params[:id])
-    shop.to_json
-  end
 
   get '/shops' do
     shops = Shop.all
