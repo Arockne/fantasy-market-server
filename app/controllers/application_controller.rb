@@ -40,4 +40,10 @@ class ApplicationController < Sinatra::Base
     item.to_json(only: [:id, :name, :desc, :pounds, :cost, :category, :created_at])
   end
 
+  delete '/items/:id' do
+    item = Item.find(params[:id])
+    item.destroy
+    item.to_json
+  end
+
 end
