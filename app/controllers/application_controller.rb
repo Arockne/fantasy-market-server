@@ -1,6 +1,15 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
+  get '/shop/:id' do
+    shop = Shop.find(params[:id])
+    shop.to_json(include: {
+      items: { 
+        except: [:updated_at, :shop_id]
+      }
+    })
+  end
+
   get '/shops' do
     shops = Shop.all
     shops.to_json
