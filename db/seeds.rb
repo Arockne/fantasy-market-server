@@ -1,10 +1,10 @@
 require 'faker'
 puts "🌱 Seeding..."
 
-potion_shop = Shop.create(name: 'Potions Emporium', specialization: 'Potions')
-weapon_smith = Shop.create(name: 'Sacrificing Steel', specialization: 'Weapons')
+potion_shop = Shop.create(name: 'Potions Emporium', specialization: 'Potion')
+weapon_smith = Shop.create(name: 'Sacrificing Steel', specialization: 'Weapon')
 armor_smith = Shop.create(name: 'Block & Anvil', specialization: 'Armor')
-tools = Shop.create(name: 'Tools & Such', specialization: 'Tools')
+tools = Shop.create(name: 'Tools & Such', specialization: 'Tool')
 
 #potions
 potions = ['Healing Potion', 'Greater Strength', 'Black Sap', 'Lesser Strength', 'Invisiblity', 'Sleep', 'Greater Speed', 'Growth']
