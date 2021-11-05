@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_224041) do
+ActiveRecord::Schema.define(version: 2021_11_05_223325) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_224041) do
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
+    t.string "specialization"
   end
 
   add_foreign_key "items", "shops"
