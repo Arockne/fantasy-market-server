@@ -51,7 +51,7 @@ class ApplicationController < Sinatra::Base
       category: params[:category],
       shop_id: params[:shop_id]
     )  
-    item.to_json(except: [:updated_at, :shop_id], include: :shop)
+    item.to_json(except: [:updated_at], include: :shop)
   end
 
   delete '/items/:id' do
