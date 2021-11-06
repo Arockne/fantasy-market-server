@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
 
   get '/items/:id' do
     item = Item.find(params[:id])
-    item.to_json(except: [:updated_at, :shop_id],
+    item.to_json(except: :updated_at,
     include: :shop)
   end
 
@@ -39,7 +39,7 @@ class ApplicationController < Sinatra::Base
       cost: params[:cost],
       category: params[:category]
     )
-    item.to_json(except: [:updated_at, :shop_id], include: :shop)
+    item.to_json(except: :updated_at)
   end
 
   post '/items' do
@@ -51,7 +51,7 @@ class ApplicationController < Sinatra::Base
       category: params[:category],
       shop_id: params[:shop_id]
     )  
-    item.to_json(except: [:updated_at], include: :shop)
+    item.to_json(except: :updated_at)
   end
 
   delete '/items/:id' do
