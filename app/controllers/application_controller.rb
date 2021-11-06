@@ -32,25 +32,12 @@ class ApplicationController < Sinatra::Base
 
   patch '/items/:id' do
     item = Item.find(params[:id])
-    item.update(
-      name: params[:name],
-      desc: params[:desc],
-      pounds: params[:pounds],
-      cost: params[:cost],
-      category: params[:category]
-    )
+    item.update_with_params(params)
     item.to_json(except: :updated_at)
   end
 
   post '/items' do
-    item = Item.create(
-      name: params[:name],
-      desc: params[:desc],
-      pounds: params[:pounds],
-      cost: params[:cost],
-      category: params[:category],
-      shop_id: params[:shop_id]
-    )  
+    item = Item.create_with_params(params)
     item.to_json(except: :updated_at)
   end
 
