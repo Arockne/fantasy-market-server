@@ -37,7 +37,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/items' do
-    item = Item.create_with_params(params)
+    item = Item.create(params)
     item.to_json(except: :updated_at)
   end
 
