@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
     shops = Shop.all
     shops.to_json(include: {
       items: { 
-        except: [:updated_at, :shop_id]
+        except: [:updated_at]
       }
     })
   end
